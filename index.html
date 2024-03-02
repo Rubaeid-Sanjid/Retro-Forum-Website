@@ -26,6 +26,7 @@
   </head>
   <body>
     <header class="container mx-auto px-24">
+      <!-- Navbar -->
       <nav class="mt-8">
         <div class="navbar bg-base-100">
           <div class="flex-1">
@@ -35,34 +36,73 @@
             <div>
               <button class="btn btn-circle">
                 <span title="Home">
-                <i class="fa-solid fa-house"></i>
+                  <i class="fa-solid fa-house"></i>
                 </span>
               </button>
 
               <button class="btn btn-circle">
                 <span title="Tooltip">
-                    <i class="fa-solid fa-pen"></i>
+                  <i class="fa-solid fa-pen"></i>
                 </span>
               </button>
 
               <button class="btn btn-circle">
                 <span title="User">
-                    <i class="fa-solid fa-user-plus"></i>
+                  <i class="fa-solid fa-user-plus"></i>
                 </span>
               </button>
 
               <button class="btn btn-circle">
                 <span title="Tag">
-                    <i class="fa-solid fa-flag"></i>
+                  <i class="fa-solid fa-flag"></i>
                 </span>
               </button>
             </div>
             <div>
-              <button class="btn bg-[#797DFC] text-white px-8 rounded-full">Sign In</button>
+              <button class="btn bg-[#797DFC] text-white px-8 rounded-full">
+                Sign In
+              </button>
             </div>
           </div>
         </div>
       </nav>
+      <!-- Banner -->
+      <div class="mt-12">
+        <div
+          class="hero h-[500px] bg-[#12132D] rounded-3xl"
+          style="background-image: url(images/bgbanner.png)"
+        >
+          <div class="hero-content text-left">
+            <div class="max-w-md">
+              <h1 class="mb-5 text-5xl font-bold text-white">
+                Welcome to the
+                <span
+                  class="bg-gradient-to-r from-[#797DFCFF] to-[#797DFC26] text-transparent bg-clip-text"
+                  >ReTro</span
+                >
+                Forum
+              </h1>
+              <p class="mb-5 text-[#FFFFFFCC]">
+                Share your favorite opinion and win and wp <br> forum coffee mug!
+              </p>
+              <input type="text" placeholder="Search here anything" class="input w-full max-w-xs px-8 rounded-full" />
+              <button class="btn bg-[#797DFC] text-white px-8 rounded-full border-none">
+                Search
+              </button>
+            </div>
+
+            <!-- Banner Right side -->
+            <div class="card w-96 bg-base-100 shadow-xl">
+              <div class="card-body text-2xl font-medium">
+                <h3 class="flex justify-between">Registered Users <span>01</span></h3>
+                <h3 class="flex justify-between">Forum <span>01</span></h3>
+                <h3 class="flex justify-between">Topics <span>01</span></h3>
+                <h3 class="flex justify-between">Replies <span>01</span></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <main></main>
     <footer></footer>
