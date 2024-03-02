@@ -1,28 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Retro Forum</title>
     <!-- Daisy UI and Tailwind CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google font Mulish -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome icon kit -->
+    <script
+      src="https://kit.fontawesome.com/c209340058.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="container mx-auto px-24">
+      <nav class="mt-8">
+        <div class="navbar bg-base-100">
+          <div class="flex-1">
+            <a class="btn btn-ghost text-4xl font-black">ReTro</a>
+          </div>
+          <div class="flex-none gap-6">
+            <div>
+              <button class="btn btn-circle">
+                <span title="Home">
+                <i class="fa-solid fa-house"></i>
+                </span>
+              </button>
 
-</head>
-<body>
-    <header>
-        
+              <button class="btn btn-circle">
+                <span title="Tooltip">
+                    <i class="fa-solid fa-pen"></i>
+                </span>
+              </button>
+
+              <button class="btn btn-circle">
+                <span title="User">
+                    <i class="fa-solid fa-user-plus"></i>
+                </span>
+              </button>
+
+              <button class="btn btn-circle">
+                <span title="Tag">
+                    <i class="fa-solid fa-flag"></i>
+                </span>
+              </button>
+            </div>
+            <div>
+              <button class="btn bg-[#797DFC] text-white px-8 rounded-full">Sign In</button>
+            </div>
+          </div>
+        </div>
+      </nav>
     </header>
-    <main>
-
-    </main>
-    <footer>
-
-    </footer>
+    <main></main>
+    <footer></footer>
     <script src="js/index.js"></script>
-</body>
+  </body>
 </html>
