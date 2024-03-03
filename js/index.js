@@ -7,6 +7,13 @@ const loadPost = async () => {
   displayPosts(data.posts);
 };
 
+const loadLatestPost = async () => {
+  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const data = await res.json();
+
+  displayLatestPost(data);
+}
+
 const displayPosts = (allPosts) => {
   let activeStatus;
   const cardContainer = document.getElementById("cardContainer");
@@ -65,4 +72,35 @@ const markReadHandler = (postTitle, viewCount) => {
   const readCount = document.getElementById('readCount');
   readCount.innerText = count;
 }
+
+const displayLatestPost = (latestPosts) =>{
+  const latestPostContainer = document.getElementById('latestPostContainer');
+
+  latestPosts.forEach((latestPost)=>{
+
+    const div = document.createElement('div');
+    div.classList = "card bg-base-100 shadow-xl mt-12";
+    div.innerHTML = `
+    <figure class="px-10 pt-10">
+      <img src="${latestPost.cover_image}" alt="" class="rounded-xl" />
+    </figure>
+    <div class="card-body">
+        <h3><i class="fa-regular fa-calendar-plus"></i> ${latestPost?.author?.posted_date? latestPost?.author?.posted_date: "No publish date"}</h3>
+        <h2 class="card-title font-bold">${latestPost.title}</h2>
+        <p>${latestPost.description}</p>
+      <div class="card-actions">
+        <div class="w-1/5">
+          <img class="rounded-full" src="${latestPost.profile_image}" alt="">
+        </div>
+        <div>
+          <h3 class="font-bold">${latestPost?.author?.name}</h3>
+          <p>${latestPost?.author?.designation? latestPost?.author?.designation : "Unknown"}</p>
+        </div>
+      </div>
+    </div>
+    `;
+    latestPostContainer.appendChild(div);
+  })
+}
 loadPost();
+loadLatestPost();
