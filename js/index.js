@@ -8,13 +8,23 @@ const loadPost = async () => {
 };
 
 const displayPosts = (allPosts) => {
+  let activeStatus;
   const cardContainer = document.getElementById("cardContainer");
   allPosts.forEach((post) => {
+    if(post.isActive){
+      activeStatus = "online";
+    }
+    else{
+      activeStatus = "offline";
+    }
+
     const div = document.createElement("div");
     div.classList = "card card-side bg-base-100 shadow-xl mt-8";
     div.innerHTML = `
     <div class="w-1/3 pl-6 pt-10">
-    <img src="${post.image}" alt="Movie"/>
+      <div class="avatar ${activeStatus}">       
+        <img src="${post.image}" alt="Movie"/>      
+      </div>
     </div>
     <div class="card-body">
         <div class="flex gap-5 font-medium">
@@ -39,7 +49,6 @@ const displayPosts = (allPosts) => {
 
 let count = 0;
 const markReadHandler = (postTitle, viewCount) => {
-  console.log(postTitle, viewCount);
   const markReadContainer = document.getElementById('markReadContainer');
 
   const div = document.createElement('div');
