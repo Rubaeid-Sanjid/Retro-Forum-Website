@@ -29,7 +29,7 @@ const displayPosts = (allPosts) => {
             <h3><i class="fa-regular fa-eye mr-3"></i><span>${post.view_count}</span></h3>
             <h3><i class="fa-regular fa-clock mr-3"></i><span>${post.posted_time}</span> min</h3>
         </div>
-        <button onclick="markReadHandler()" class="btn btn-circle bg-[#10B981] text-white"><i class="fa-solid fa-envelope-open"></i></button>
+        <button onclick="markReadHandler('${post.title}', ${post.view_count})" class="btn btn-circle bg-[#10B981] text-white"><i class="fa-solid fa-envelope-open"></i></button>
       </div>
     </div>
     `;
@@ -37,4 +37,23 @@ const displayPosts = (allPosts) => {
   });
 };
 
+let count = 0;
+const markReadHandler = (postTitle, viewCount) => {
+  console.log(postTitle, viewCount);
+  const markReadContainer = document.getElementById('markReadContainer');
+
+  const div = document.createElement('div');
+  div.classList = "card bg-base-100 mt-4";
+  div.innerHTML = `
+      <div class="card-body flex-row">
+          <h3 class="font-semibold">${postTitle}</h3>
+          <h3 class="flex items-center"><i class="fa-regular fa-eye mr-3"></i><span>${viewCount}</span></h3>
+      </div>
+  `;
+  markReadContainer.appendChild(div);
+  count++;
+
+  const readCount = document.getElementById('readCount');
+  readCount.innerText = count;
+}
 loadPost();
