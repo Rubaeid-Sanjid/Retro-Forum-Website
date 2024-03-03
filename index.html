@@ -72,10 +72,10 @@
           class="hero h-[500px] bg-[#12132D] rounded-3xl"
           style="background-image: url(images/bgbanner.png)"
         >
-          <div class="hero-content text-left">
+          <div class="hero-content text-left flex-col lg:flex-row">
             <div class="max-w-md">
               <h1 class="mb-5 text-5xl font-bold text-white">
-                Welcome to the
+                Welcome to the <br>
                 <span
                   class="bg-gradient-to-r from-[#797DFCFF] to-[#797DFC26] text-transparent bg-clip-text"
                   >ReTro</span
@@ -85,10 +85,12 @@
               <p class="mb-5 text-[#FFFFFFCC]">
                 Share your favorite opinion and win and wp <br> forum coffee mug!
               </p>
-              <input type="text" placeholder="Search here anything" class="input w-full max-w-xs px-8 rounded-full" />
+              <div class="flex">
+                <input type="text" placeholder="Search here anything" class="input w-full max-w-xs px-8 rounded-full" />
               <button class="btn bg-[#797DFC] text-white px-8 rounded-full border-none">
                 Search
               </button>
+              </div>
             </div>
 
             <!-- Banner Right side -->
@@ -111,12 +113,38 @@
                 <p>Engage in vibrant discussions spanning retro topics and share your nostalgia-filled experiences.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2 w-">
                 <!-- card container -->
                 <div id="cardContainer">
                     
                 </div>
 
+                <div>
+                  <div class="card w-96 bg-[#12132D0D]">
+                    <!-- <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> -->
+                    <!-- <div class="card-body">
+                      <h2 class="card-title">Shoes!</h2>
+                      <p>If a dog chews shoes whose shoes does he choose?</p>
+                      <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Buy Now</button>
+                      </div>
+                    </div> -->
+                    <div class="flex justify-between p-6">
+                      <h3 class="text-xl font-bold">Title</h3>
+                      <h4><i class="fa-solid fa-check-double text-[#3DCE09]"></i> Mark as read (<span>2</span>)</h4>
+                    </div>
+
+                    <div class="card w-96 bg-base-100 mt-4">
+                      <div class="card-body flex-row">
+                        <!-- <div class="card-actions"> -->
+                        
+                          <p>We are using cookies for no reason.</p>
+                          <h3><i class="fa-regular fa-eye mr-3"></i><span>${post.view_count}</span></h3>
+                        <!-- </div> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
             </div>
         </section>

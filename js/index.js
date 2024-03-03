@@ -11,23 +11,25 @@ const displayPosts = (allPosts) => {
   const cardContainer = document.getElementById("cardContainer");
   allPosts.forEach((post) => {
     const div = document.createElement("div");
-    div.classList = "card card-side bg-base-100 shadow-xl";
+    div.classList = "card card-side bg-base-100 shadow-xl mt-8";
     div.innerHTML = `
-    <figure><img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" alt="Movie"/></figure>
+    <div class="w-1/3 pl-6 pt-10">
+    <img src="${post.image}" alt="Movie"/>
+    </div>
     <div class="card-body">
-        <div class="flex gap-5">
-            <h3>#Music</h3>
-            <h3>Author:</h3>
+        <div class="flex gap-5 font-medium">
+            <h3># ${post.category}</h3>
+            <h3>Author: ${post.author?.name}</h3>
         </div>
-      <h2 class="card-title">10 Kids Unaware of Their Halloween Costume</h2>
-      <p class="mb-5">It’s one thing to subject yourself to ha Halloween costume mishap because, hey that’s your prerogative</p>
+      <h2 class="card-title">${post.title}</h2>
+      <p class="mb-5">${post.description}</p>
       <div class="card-actions justify-between items-center border-t-2 border-dashed pt-5">
         <div class="flex gap-6">
-            <h3><i class="fa-regular fa-message mr-3"></i><span>560</span></h3>
-            <h3><i class="fa-regular fa-eye mr-3"></i><span>560</span></h3>
-            <h3><i class="fa-regular fa-clock mr-3"></i><span>560</span></h3>
+            <h3><i class="fa-regular fa-message mr-3"></i><span>${post.comment_count}</span></h3>
+            <h3><i class="fa-regular fa-eye mr-3"></i><span>${post.view_count}</span></h3>
+            <h3><i class="fa-regular fa-clock mr-3"></i><span>${post.posted_time}</span> min</h3>
         </div>
-        <button class="btn btn-circle bg-[#10B981] text-white"><i class="fa-solid fa-envelope-open"></i></button>
+        <button onclick="markReadHandler()" class="btn btn-circle bg-[#10B981] text-white"><i class="fa-solid fa-envelope-open"></i></button>
       </div>
     </div>
     `;
