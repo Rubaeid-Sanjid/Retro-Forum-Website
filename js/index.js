@@ -32,16 +32,19 @@ const displayPosts = (allPosts) => {
 
   allPosts.forEach((post) => {
     if (post.isActive) {
-      activeStatus = "online";
+      activeStatus = "bg-[#10B981]";
     } else {
-      activeStatus = "offline";
+      activeStatus = "bg-[#FF3434]";
     }
 
     const div = document.createElement("div");
     div.classList = "card card-side bg-base-100 shadow-xl mt-8";
     div.innerHTML = `
-    <div class="w-1/3 pl-6 pt-10">
-      <div class="avatar ${activeStatus}">       
+    <div class="w-1/3 pl-6 pt-10 relative">
+      <div class="h-4 w-4 rounded-full ${activeStatus} absolute -right-3 top-9">
+      </div>
+
+      <div>       
         <img src="${post.image}" alt="Movie"/>      
       </div>
     </div>
