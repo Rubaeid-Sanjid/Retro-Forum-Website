@@ -1,27 +1,39 @@
-const loadPost = async () => {
-  const res = await fetch(
-    "https://openapi.programming-hero.com/api/retro-forum/posts"
-  );
-  const data = await res.json();
+const loadPost = async (searchText) => {
+  if (typeof searchText === "undefined") {
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/retro-forum/posts`
+    );
+    const data = await res.json();
 
-  displayPosts(data.posts);
+    displayPosts(data.posts);
+  } else {
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/retro-forum/posts?category=${searchText}`
+    );
+    const data = await res.json();
+
+    displayPosts(data.posts);
+  }
 };
 
 const loadLatestPost = async () => {
-  const res = await fetch('https://openapi.programming-hero.com/api/retro-forum/latest-posts');
+  const res = await fetch(
+    "https://openapi.programming-hero.com/api/retro-forum/latest-posts"
+  );
   const data = await res.json();
 
   displayLatestPost(data);
-}
+};
 
 const displayPosts = (allPosts) => {
   let activeStatus;
   const cardContainer = document.getElementById("cardContainer");
+  cardContainer.textContent = "";
+
   allPosts.forEach((post) => {
-    if(post.isActive){
+    if (post.isActive) {
       activeStatus = "online";
-    }
-    else{
+    } else {
       activeStatus = "offline";
     }
 
@@ -56,9 +68,9 @@ const displayPosts = (allPosts) => {
 
 let count = 0;
 const markReadHandler = (postTitle, viewCount) => {
-  const markReadContainer = document.getElementById('markReadContainer');
+  const markReadContainer = document.getElementById("markReadContainer");
 
-  const div = document.createElement('div');
+  const div = document.createElement("div");
   div.classList = "card bg-base-100 mt-4";
   div.innerHTML = `
       <div class="card-body flex-row">
@@ -69,23 +81,26 @@ const markReadHandler = (postTitle, viewCount) => {
   markReadContainer.appendChild(div);
   count++;
 
-  const readCount = document.getElementById('readCount');
+  const readCount = document.getElementById("readCount");
   readCount.innerText = count;
-}
+};
 
-const displayLatestPost = (latestPosts) =>{
-  const latestPostContainer = document.getElementById('latestPostContainer');
+const displayLatestPost = (latestPosts) => {
+  const latestPostContainer = document.getElementById("latestPostContainer");
 
-  latestPosts.forEach((latestPost)=>{
-
-    const div = document.createElement('div');
+  latestPosts.forEach((latestPost) => {
+    const div = document.createElement("div");
     div.classList = "card bg-base-100 shadow-xl mt-12";
     div.innerHTML = `
     <figure class="px-10 pt-10">
       <img src="${latestPost.cover_image}" alt="" class="rounded-xl" />
     </figure>
     <div class="card-body">
-        <h3><i class="fa-regular fa-calendar-plus"></i> ${latestPost?.author?.posted_date? latestPost?.author?.posted_date: "No publish date"}</h3>
+        <h3><i class="fa-regular fa-calendar-plus"></i> ${
+          latestPost?.author?.posted_date
+            ? latestPost?.author?.posted_date
+            : "No publish date"
+        }</h3>
         <h2 class="card-title font-bold">${latestPost.title}</h2>
         <p>${latestPost.description}</p>
       <div class="card-actions">
@@ -94,13 +109,25 @@ const displayLatestPost = (latestPosts) =>{
         </div>
         <div>
           <h3 class="font-bold">${latestPost?.author?.name}</h3>
-          <p>${latestPost?.author?.designation? latestPost?.author?.designation : "Unknown"}</p>
+          <p>${
+            latestPost?.author?.designation
+              ? latestPost?.author?.designation
+              : "Unknown"
+          }</p>
         </div>
       </div>
     </div>
     `;
     latestPostContainer.appendChild(div);
-  })
-}
+  });
+};
+
+const handleSearch = () => {
+  const searchField = document.getElementById("searchField");
+  const searchText = searchField.value;
+
+  loadPost(searchText);
+};
+
 loadPost();
 loadLatestPost();
