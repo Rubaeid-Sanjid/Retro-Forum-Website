@@ -67,6 +67,7 @@ const displayPosts = (allPosts) => {
     `;
     cardContainer.appendChild(div);
   });
+  toggleLoading(false);
 };
 
 let count = 0;
@@ -126,11 +127,21 @@ const displayLatestPost = (latestPosts) => {
 };
 
 const handleSearch = () => {
+  toggleLoading(true);
+
   const searchField = document.getElementById("searchField");
   const searchText = searchField.value;
-
+  
   loadPost(searchText);
 };
 
+const toggleLoading = (isLoading) =>{
+  const loadingBar = document.getElementById('loadingBar');
+  if(isLoading){
+    loadingBar.classList.remove('hidden');
+  }else{
+    loadingBar.classList.add('hidden');
+  }
+}
 loadPost();
 loadLatestPost();
