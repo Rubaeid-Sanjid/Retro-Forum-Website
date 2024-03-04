@@ -38,7 +38,7 @@ const displayPosts = (allPosts) => {
     }
 
     const div = document.createElement("div");
-    div.classList = "card card-side bg-base-100 shadow-xl mt-8";
+    div.classList = "card card-side bg-base-100 shadow-xl mt-8 flex-col lg:flex-row";
     div.innerHTML = `
     <div class="w-1/3 pl-6 pt-10 relative">
       <div class="h-4 w-4 rounded-full ${activeStatus} absolute -right-3 top-9">
@@ -49,14 +49,14 @@ const displayPosts = (allPosts) => {
       </div>
     </div>
     <div class="card-body">
-        <div class="flex gap-5 font-medium">
+        <div class="flex gap-2 lg:gap-5 font-medium flex-col lg:flex-row">
             <h3># ${post.category}</h3>
             <h3>Author: ${post.author?.name}</h3>
         </div>
       <h2 class="card-title">${post.title}</h2>
       <p class="mb-5">${post.description}</p>
-      <div class="card-actions justify-between items-center border-t-2 border-dashed pt-5">
-        <div class="flex gap-6">
+      <div class="card-actions lg:justify-between items-center border-t-2 border-dashed pt-5">
+        <div class="flex gap-2 lg:gap-6">
             <h3><i class="fa-regular fa-message mr-3"></i><span>${post.comment_count}</span></h3>
             <h3><i class="fa-regular fa-eye mr-3"></i><span>${post.view_count}</span></h3>
             <h3><i class="fa-regular fa-clock mr-3"></i><span>${post.posted_time}</span> min</h3>
@@ -77,7 +77,7 @@ const markReadHandler = (postTitle, viewCount) => {
   const div = document.createElement("div");
   div.classList = "card bg-base-100 mt-4";
   div.innerHTML = `
-      <div class="card-body flex-row">
+      <div class="card-body flex-row justify-between p-4">
           <h3 class="font-semibold">${postTitle}</h3>
           <h3 class="flex items-center"><i class="fa-regular fa-eye mr-3"></i><span>${viewCount}</span></h3>
       </div>

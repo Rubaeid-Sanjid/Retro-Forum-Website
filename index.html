@@ -25,14 +25,15 @@
     ></script>
   </head>
   <body>
-    <header class="container mx-auto px-24">
+    <header class="container mx-auto px-3 lg:px-24">
       <!-- Navbar -->
       <nav class="mt-8">
-        <div class="navbar bg-base-100">
+        <div class="navbar bg-base-100 flex-col lg:flex-row gap-2">
           <div class="flex-1">
             <a class="btn btn-ghost text-4xl font-black">ReTro</a>
           </div>
-          <div class="flex-none gap-6">
+
+          <div class="flex-none gap-6 flex-col lg:flex-row">
             <div>
               <button class="btn btn-circle">
                 <span title="Home">
@@ -58,6 +59,7 @@
                 </span>
               </button>
             </div>
+
             <div>
               <button class="btn bg-[#797DFC] text-white px-8 rounded-full">
                 Sign In
@@ -69,12 +71,12 @@
       <!-- Banner -->
       <div class="mt-12">
         <div
-          class="hero h-[500px] bg-[#12132D] rounded-3xl"
+          class="hero lg:h-[500px] bg-[#12132D] rounded-3xl"
           style="background-image: url(images/bgbanner.png)"
         >
-          <div class="hero-content text-left flex-col lg:flex-row">
+          <div class="hero-content text-left flex-col lg:flex-row gap-6">
             <div class="max-w-md">
-              <h1 class="mb-5 text-5xl font-bold text-white">
+              <h1 class="mb-5 text-4xl lg:text-5xl font-bold text-white">
                 Welcome to the <br />
                 <span
                   class="bg-gradient-to-r from-[#797DFCFF] to-[#797DFC26] text-transparent bg-clip-text"
@@ -86,16 +88,16 @@
                 Share your favorite opinion and win and wp <br />
                 forum coffee mug!
               </p>
-              <div class="flex">
+              <div class="flex flex-col lg:flex-row gap-4">
                 <input
                   id="searchField"
                   type="text"
                   placeholder="Search here anything"
-                  class="input w-full max-w-xs px-8 rounded-full"
+                  class="input w-full max-w-xs px-4 lg:px-8 rounded-full"
                 />
                 <button
                   onclick="handleSearch()"
-                  class="btn bg-[#797DFC] text-white px-8 rounded-full border-none"
+                  class="btn bg-[#797DFC] text-white px-4 lg:px-8 rounded-full border-none"
                 >
                   Search
                 </button>
@@ -103,7 +105,7 @@
             </div>
 
             <!-- Banner Right side -->
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card bg-base-100 shadow-xl">
               <div class="card-body text-2xl font-medium">
                 <h3 class="flex justify-between">
                   Registered Users <span>01</span>
@@ -117,8 +119,8 @@
         </div>
       </div>
     </header>
-    <main class="container mx-auto px-24">
-      <section class="mt-24">
+    <main class="container mx-auto px-3 lg:px-24">
+      <section class="mt-12 lg:mt-24">
         <div class="text-center">
           <h2 class="text-4xl font-black mb-5">Let’s Discuss</h2>
           <p>
@@ -142,7 +144,7 @@
           <!-- Title card -->
           <div class="mt-8">
             <!-- mark as read container -->
-            <div id="markReadContainer" class="card w-96 bg-[#12132D0D] p-6">
+            <div id="markReadContainer" class="card bg-[#12132D0D] p-6">
               <div class="flex justify-between">
                 <h3 class="text-xl font-bold">Title</h3>
                 <h4>
@@ -156,12 +158,12 @@
       </section>
 
       <!-- Join forum section -->
-      <section class="mt-24">
-        <div class="hero h-[400px] bg-[#12132D] rounded-3xl p-10">
-          <div class="hero-content flex-col lg:flex-row-reverse">
-            <img src="images/joinforum.png" class="max-w-sm rounded-lg" />
+      <section class="mt-12 lg:mt-24">
+        <div class="hero lg:h-[400px] bg-[#12132D] rounded-3xl p-10">
+          <div class="hero-content flex-col lg:flex-row-reverse p-0">
+            <img src="images/joinforum.png" class="rounded-lg" />
             <div>
-              <h1 class="text-5xl font-bold text-white">Join Our Forum</h1>
+              <h1 class="text-4xl lg:text-5xl font-bold text-white">Join Our Forum</h1>
               <p class="py-6 text-[#FFFFFFCC]">
                 Join our vibrant community of retro enthusiasts and unlock a
                 treasure trove of nostalgia. Connect, share, and relive the
@@ -178,10 +180,10 @@
       </section>
 
       <!-- Latest posts section -->
-      <section class="mt-24">
+      <section class="mt-12 lg:mt-24">
         <div class="text-center">
           <h2 class="text-4xl font-black mb-5">Latest Posts</h2>
-          <p class="w-1/2 mx-auto">
+          <p class="lg:w-1/2 mx-auto">
             Stay updated with the pulse of retro discussions. Explore fresh
             perspectives, insights, and trending topics from our dynamic
             community.
@@ -197,7 +199,7 @@
     </main>
     <!-- Footer -->
     <footer
-      class="footer footer-center p-10 bg-base-200 text-base-content rounded mt-24"
+      class="footer footer-center p-10 bg-base-200 text-base-content rounded mt-12 lg:mt-24"
     >
       <div>
         <img src="images/logo.png" alt="" />
