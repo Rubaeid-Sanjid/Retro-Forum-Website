@@ -131,7 +131,7 @@ const handleSearch = () => {
 
   const searchField = document.getElementById("searchField");
   const searchText = searchField.value;
-  
+  searchField.value = "";
   loadPost(searchText);
 };
 
